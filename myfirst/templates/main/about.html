@@ -6,7 +6,13 @@
 
 {% block content %}
 
-	<h1>{{about.about_title}}</h1>
-	<p>{{about.about_text}}</p>
+	{% if info %}
+
+		<h1>{{info.title}}</h1>
+		<p>{{info.text}}</p>
+
+	{% else %}
+		Информация не найдена
+	{% endif %}
 
 {% endblock %}

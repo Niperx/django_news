@@ -12,9 +12,10 @@
 <header>
 
 	<ul class="menu-main">
-	  <li><a href="" class="current">Blog</a></li>
+
+	  <li><a href="{% url 'articles:index' %}">Blog</a></li>
 	  <li><a href="{% url 'main:about' %}">About</a></li>
-	  <li><a href="">Contact</a></li>
+	  <li><a href="{% url 'main:contact-us' %}">Contact</a></li>
 	  <li><a href="">Auth</a></li>
 	</ul>
 	
@@ -24,7 +25,12 @@
 
 <main>
 
-	{% block content %}{% endblock %}
+	<section>
+		
+		{% block content %}{% endblock %}
+		
+	</section>
+
 
 </main>
 

@@ -9,3 +9,15 @@ class About(models.Model):
 
 	class Meta:
 		verbose_name = 'Обо мне'
+		verbose_name_plural = 'Обо мне'
+
+class Contact(models.Model):
+	number = models.CharField('Номер', max_length = 200)
+	text = models.TextField('Описание номера')
+
+	def __str__(self):
+		return self.number
+
+	class Meta:
+		verbose_name = 'Контакты'
+		verbose_name_plural = 'Контакты'
