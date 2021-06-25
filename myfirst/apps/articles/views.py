@@ -2,6 +2,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 from django.urls import reverse
+from django.utils import timezone
 
 from .models import Article
 from .forms import ArticleForm
@@ -26,7 +27,7 @@ def leave_comment(request, article_id):
 	except:
 		raise Http404("Статья не найдена!")
 
-	a.comment_set.create(author_name = request.POST['name'], comment_text = request.POST['text'])
+	a.comment_set.create(author_name = request.POST['name'], comment_text = request.POST['text'], pub_date = timezone.now())
 
 	return HttpResponseRedirect(reverse('articles:detail', args = (a.id,)))
 

@@ -58,6 +58,77 @@ body {
 }
 
 
-.comms {
-  margin-bottom: 30px;
+.comments {
+    margin-top: 5%;
+    margin-left: 20px
+}
+
+.darker {
+    border: 1px solid #ecb21f;
+    background-color: black;
+    float: right;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px
+}
+
+.comment {
+    border: 1px solid black;;
+    float: left;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px
+}
+
+.comment h4,
+.comment span,
+.darker h4,
+.darker span {
+    display: inline
+}
+
+h4 {
+    font-weight: bold
+}
+
+#align-form {
+    margin-top: 20px
+}
+
+.form-group p a {
+    color: white
+}
+
+#checkbx {
+    background-color: black
+}
+
+#darker img {
+    margin-right: 15px;
+    position: static
+}
+
+.form-group input,
+.form-group textarea {
+    border: 1px solid black;
+    border-radius: 12px
+}
+
+form {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: #ffc107;
+  color: black;
+  border: 1px solid black;
+}
+
+#algin-form {
+  margin-bottom: 50px;
 }
