@@ -53,9 +53,11 @@
 }
 }
 
-section {
+body {
   padding: 0 calc(50% - 590px);
 }
 
 
-
+.comms {
+  margin-bottom: 30px;
+}

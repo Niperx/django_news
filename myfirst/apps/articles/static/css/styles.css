@@ -5,6 +5,7 @@
   padding: 25px 0 5px;
   text-align: center;
   background: white;
+  margin-bottom: 50px;
 }
 .menu-main li {display: inline-block;}
 .menu-main li:after {
@@ -50,4 +51,12 @@
   padding: 25px 0 20px; 
   margin: 0 30px;
 }
+}
+
+body {
+  padding: 0 calc(50% - 590px);
+}
+
+.comms {
+  margin-bottom: 500px;
 }

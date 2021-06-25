@@ -1,12 +1,13 @@
 from django.http import Http404, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.urls import reverse
 
 from .models import Article
+from .forms import ArticleForm
 
 def index(request):
-	latest_articles_list = Article.objects.order_by('pub_date')[:5]
+	latest_articles_list = Article.objects.order_by('-pub_date')[:5]
 	return render(request, 'articles/list.html', {'latest_articles_list': latest_articles_list})
 
 def detail(request, article_id):
@@ -28,3 +29,20 @@ def leave_comment(request, article_id):
 	a.comment_set.create(author_name = request.POST['name'], comment_text = request.POST['text'])
 
 	return HttpResponseRedirect(reverse('articles:detail', args = (a.id,)))
+
+def create(request):
+	error = ''
+	if request.method == 'POST':
+		form = ArticleForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/articles')
+		else:
+			error = 'Форма была неверной'
+
+	form = ArticleForm()
+	context = {
+		'form': form,
+		'error': error
+	}
+	return render(request, 'articles/create.html', context)
