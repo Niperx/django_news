@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load tz %}
 
 {% block title %}{{article.article_title}}{% endblock %}
 
@@ -21,11 +22,13 @@
 	<div class="col-sm-5 col-md-6 col-12 pb-4">
 		<h1>Комментарии</h1>
 
+	{% get_current_timezone as TIME_ZONE %}
+
 	{% if latest_comments_list %}
 		{% for c in latest_comments_list %}
 			<div class="comment mt-4 text-justify float-left">
 				<img src="https://i.imgur.com/CFpa3nK.jpg" alt="" class="rounded-circle" width="40" height="40">
-			    <h4>{{c.author_name}}</h4> <span>- {{c.pub_date}} </span> <br>
+			    <h4>{{c.author_name}}</h4> <span>- {{ c.pub_date }} </span> <br>
 			    <p>{{c.comment_text}}</p>
 			</div>
 		{% endfor %}

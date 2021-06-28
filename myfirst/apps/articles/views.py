@@ -7,6 +7,8 @@ from django.utils import timezone
 from .models import Article
 from .forms import ArticleForm
 
+import pytz
+
 def index(request):
 	latest_articles_list = Article.objects.order_by('-pub_date')[:5]
 	return render(request, 'articles/list.html', {'latest_articles_list': latest_articles_list})
@@ -18,6 +20,13 @@ def detail(request, article_id):
 		raise Http404("Статья не найдена!")
 
 	latest_comments_list = a.comment_set.order_by('-id')[:10]
+
+	local_timezone = pytz.timezone('UTC')
+
+	# for c in latest_comments_list:
+	# 	print(c.pub_date)
+	# 	c.pub_date = c.pub_date.astimezone(local_timezone)
+	# 	print(c.pub_date)
 
 	return render(request, 'articles/detail.html', {'article': a, 'latest_comments_list': latest_comments_list})
 

@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['localhost', '192.168.1.105', '127.0.0.1', '192.168.1.43']
 
 INSTALLED_APPS = [
     'grappelli',
+    'pytz',
     'main.apps.MainConfig',
     'articles.apps.ArticlesConfig',
     'django.contrib.admin',
